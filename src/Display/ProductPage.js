@@ -12,7 +12,7 @@ export default function ProductPage(props) {
     return <div> product not exist</div>;
   }
   return (
-    <div className="row-product">
+    <div className="row top">
       <div className="col-image">
         <img className="large" src={product.image} alt={product.name}></img>
       </div>
