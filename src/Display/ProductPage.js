@@ -7,9 +7,9 @@ export default function ProductPage(props) {
   //searching for x_,id which is the id of the product inside products array
   // and comparing with the  value user enter (props.match.params.id)
 
-  const product = data.products.find((x) => x._id === props.match.params.id);
+  const product = props.match.params.id;
   if (!product) {
-    return <div> product not exist</div>;
+    return <div> product does not exist</div>;
   }
   return (
     <div className="row top">

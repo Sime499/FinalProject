@@ -12,7 +12,7 @@ export default function HomeScreen() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get("/api/products");
+        const { data } = await axios.get("http://localhost:3000/api/products");
         setLoading(false);
         setProducts(data);
       } catch (err) {
@@ -25,17 +25,14 @@ export default function HomeScreen() {
   console.log(products);
   return (
     <div>
-      {loading ? (
-        <LoadingBox></LoadingBox>
-      ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
-      ) : (
+      {loading ? 
+        <LoadingBox></LoadingBox>:
         <div className="row center">
           {products.map((product) => (
             <Product key={product._id} product={product}></Product>
           ))}
         </div>
-      )}
+      }
     </div>
   );
 }
