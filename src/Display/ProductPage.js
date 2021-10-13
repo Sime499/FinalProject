@@ -1,7 +1,6 @@
 import React from "react";
 import data from "../data";
 import Rating from "../components/Rating.js";
-
 export default function ProductPage(props) {
   //define product use find function(array function) based on the defined object
   //searching for x_,id which is the id of the product inside products array
@@ -33,7 +32,6 @@ export default function ProductPage(props) {
           </li>
         </ul>
       </div>
-
       <div className="col-action">
         <div className="card cart-body">
           <ul>
