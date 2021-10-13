@@ -5,6 +5,7 @@ export default function ProductPage(props) {
   //define product use find function(array function) based on the defined object
   //searching for x_,id which is the id of the product inside products array
   // and comparing with the  value user enter (props.match.params.id)
+
   const product = props.match.params.id;
   if (!product) {
     return <div> product does not exist</div>;
