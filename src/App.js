@@ -1,6 +1,8 @@
+import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import HomePage from "./Display/HomePage";
 import ProductPage from "./Display/ProductPage";
-import { BrowserRouter, Route } from "react-router-dom";
+
 function App() {
   return (
     <BrowserRouter>
@@ -12,13 +14,13 @@ function App() {
             </a>
           </div>
           <div>
-            <a href="/Shop" class="">
+            <a href="/Shop" className="">
               Shop
             </a>
-            <a href="/Shop" class="">
+            <a href="/Shop" className="">
               Sign In
             </a>
-            <a href="/Cart" class="">
+            <a href="/Cart" className="">
               Cart
             </a>
           </div>
