@@ -10,6 +10,7 @@ import { detailsProduct } from "../actions/productActions";
 // and comparing with the  value user enter (props.match.params.id)
 
 export default function ProductPage(props) {
+<<<<<<< HEAD
   const dispatch = useDispatch();
   const productId = props.match.params.id;
   const productDetails = useSelector((state) => state.productDetails);
@@ -18,6 +19,7 @@ export default function ProductPage(props) {
   useEffect(() => {
     dispatch(detailsProduct(productId));
   }, [dispatch, productId]);
+
 
   return (
     <div>
