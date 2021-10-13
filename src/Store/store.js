@@ -6,11 +6,14 @@ import {
   productDetailReducer,
 } from "../reducers/productReducer";
 
+import { cartReducer } from "../reducers/cartReducer";
+
 const initialState = {};
 const reducer = combineReducers({
   // accept parameter which is object which introducer reduct to store
   productList: productListReducer,
   productDetails: productDetailReducer,
+  cart: cartReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

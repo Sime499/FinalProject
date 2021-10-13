@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import HomePage from "./Display/HomePage";
 import ProductPage from "./Display/ProductPage";
+import CartPage from "./Display/CartPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <main>
           <Route path="/" component={HomePage} exact></Route>
           <Route path="/product/:id" component={ProductPage}></Route>
+          <Route path="/cart/:id?" component={CartPage}></Route>
         </main>
         <footer>
           <p className="row footer">All right is preserved</p>
