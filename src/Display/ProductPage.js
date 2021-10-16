@@ -1,27 +1,23 @@
-import React from "react";
-import Rating from "../components/Rating.js";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { detailsProduct } from "../actions/productActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import { useEffect, useState } from "react";
-import { detailsProduct } from "../actions/productActions";
-//define product use find function(array function) based on the defined object
-//searching for x_,id which is the id of the product inside products array
-// and comparing with the  value user enter (props.match.params.id)
+import Rating from "../components/Rating";
 
-export default function ProductPage(props) {
+export default function ProductScreen(props) {
   const dispatch = useDispatch();
   const productId = props.match.params.id;
+  const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
-  const [qty, setQty] = useState(1);
 
   useEffect(() => {
     dispatch(detailsProduct(productId));
   }, [dispatch, productId]);
-
   const addToCartHandler = () => {
-    props.history.push(`/cart/${productId}?qty={qty}`);
+    props.history.push(`/cart/${productId}?qty=${qty}`);
   };
   return (
     <div>
@@ -31,6 +27,7 @@ export default function ProductPage(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
+          <Link to="/">Back to result</Link>
           <div className="row top">
             <div className="col-2">
               <img
@@ -78,37 +75,35 @@ export default function ProductPage(props) {
                       </div>
                     </div>
                   </li>
-                  {product.countInStock > 0 && (
-                    <>
-                      <li>
-                        <div className="row">
-                          <div>Qty</div>
-                          <div>
-                            <select
-                              value={qty}
-                              onChange={(e) => setQty(e.target.value)}
-                            >
-                              {[...Array(product.countInStock).keys()].map(
-                                (x) => (
-                                  <option key={x + 1} value={x + 1}>
-                                    {x + 1}
-                                  </option>
-                                )
-                              )}
-                            </select>
-                          </div>
+                  <li>
+                    <li>
+                      <div className="row">
+                        <div>Qty</div>
+                        <div>
+                          <select
+                            value={qty}
+                            onChange={(e) => setQty(e.target.value)}
+                          >
+                            {[...Array(product.countInStock).keys()].map(
+                              (x) => (
+                                <option key={x + 1} value={x + 1}>
+                                  {x + 1}
+                                </option>
+                              )
+                            )}
+                          </select>
                         </div>
-                      </li>
-                      <li>
-                        <button
-                          onClick={addToCartHandler}
-                          className="primary block"
-                        >
-                          Add to Cart
-                        </button>
-                      </li>
-                    </>
-                  )}
+                      </div>
+                    </li>
+                    <li>
+                      <button
+                        onClick={addToCartHandler}
+                        className="primary block"
+                      >
+                        Add To Cart
+                      </button>
+                    </li>
+                  </li>
                 </ul>
               </div>
             </div>
