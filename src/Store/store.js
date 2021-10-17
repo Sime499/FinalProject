@@ -7,10 +7,16 @@ import {
 } from "../reducers/productReducer";
 
 import { cartReducer } from "../reducers/cartReducer";
-import { signInReducer, registerReducer } from "../reducers/signInReducer";
+import { userSigninReducer, registerReducer } from "../reducers/signInReducer";
 
 //initial value of cartReduce
 const initialState = {
+  userSignin: {
+    userInfo: localStorage.getItem("userInfo")
+      ? JSON.parse(localStorage.getItem("userInfo"))
+      : null,
+  },
+
   cart: {
     cartItems: localStorage.getItem("cartItems")
       ? JSON.parse(localStorage.getItem("cartItems"))
@@ -19,11 +25,11 @@ const initialState = {
 };
 
 const reducer = combineReducers({
-  // accept parameter which is object which introducer reduct to store
+  // accept parameter which is object which introducer reducer to store
   productList: productListReducer,
   productDetails: productDetailReducer,
   cart: cartReducer,
-  signIn: signInReducer,
+  userSignin: userSigninReducer,
   register: registerReducer,
 });
 

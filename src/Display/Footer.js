@@ -10,38 +10,38 @@ export default function Footer() {
         <Container maxWidth="lg">
           <Grid container spacing={5}>
             <Grid item spacing xs={12} sm={4}>
-              <Box BorderBottom={1}>Learn</Box>
+              <Box>Learn</Box>
               <Box>
                 <Link to="/Learn">Our Story</Link>
               </Box>
-              <Box BorderBottom={1}>
+              <Box>
                 <Link to="/Shop">Our Coffee</Link>
               </Box>
-              <Box BorderBottom={1}>
+              <Box>
                 <Link to="/Contact">WholeSale</Link>
               </Box>
             </Grid>
             <Grid item spacing xs={12} sm={4}>
-              <Box BorderBottom={1}>Account</Box>
+              <Box>Account</Box>
               <Box>
                 <Link to="/Learn">SignIn</Link>
               </Box>
-              <Box BorderBottom={1}>
+              <Box>
                 <Link to="/Shop">SignIn</Link>
               </Box>
-              <Box BorderBottom={1}>
+              <Box>
                 <Link to="/Contact">Contact</Link>
               </Box>
             </Grid>
             <Grid item spacing xs={12} sm={4}>
-              <Box BorderBottom={1}>Social Media</Box>
+              <Box>Social Media</Box>
               <Box>
-                <Link to="/Learn">Twiter</Link>
+                <Link to="/Learn">Twitter</Link>
               </Box>
-              <Box BorderBottom={1}>
+              <Box>
                 <Link to="/Shop">Facebook</Link>
               </Box>
-              <Box BorderBottom={1}>
+              <Box>
                 <Link to="/Contact">Instagram</Link>
               </Box>
             </Grid>
