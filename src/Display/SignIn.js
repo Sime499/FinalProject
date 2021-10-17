@@ -1,13 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { signIn } from "../actions/SignInAction";
+import { useSelector } from "react-redux";
 import "./signIn.css";
 
-export default function SignIn() {
+export default function SignIn(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const redirect = props.location.search
+    ? props.location.search.split("=")[1]
+    : "/";
+
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
 
   const dispatch = useDispatch();
 
@@ -15,6 +23,12 @@ export default function SignIn() {
     e.preventDefault();
     dispatch(signIn(email, password));
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      props.history.push(redirect);
+    }
+  }, [props.history, redirect, userInfo]);
 
   return (
     <form className="inner-container" onSubmit={submitHandler}>
@@ -44,7 +58,7 @@ export default function SignIn() {
           Sign In
         </button>
       </div>
-      <div className="register">
+      <div className="">
         New User {""}
         <Link to="/Register">Register</Link>
       </div>
