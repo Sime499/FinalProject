@@ -9,6 +9,9 @@ import { signout } from "./actions/SignInAction";
 import Learn from "./Display/Learn";
 import Footer from "./Display/Footer";
 import Register from "./Display/Register";
+import ShippingAddressPage from "./Display/ShippingAddressPage";
+import PaymentPage from "./Display/PaymentPage";
+import PlaceOrder from "./Display/PlaceOrder";
 
 function App(props) {
   const cart = useSelector((state) => state.cart);
@@ -69,8 +72,12 @@ function App(props) {
           <Route path="/SignIn" component={SignIn}></Route>
           <Route path="/Learn" component={Learn}></Route>
           <Route path="/Register" component={Register}></Route>
+          <Route path="/Shipping" component={ShippingAddressPage}></Route>
+          <Route path="/Payment" component={PaymentPage}></Route>
+          <Route path="/PlaceOrder" component={PlaceOrder}></Route>
         </main>
         <footer className="row center">
+          s
           <Footer />
         </footer>
       </div>
