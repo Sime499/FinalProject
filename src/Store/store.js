@@ -8,6 +8,10 @@ import {
 
 import { cartReducer } from "../reducers/cartReducer";
 import { userSigninReducer, registerReducer } from "../reducers/signInReducer";
+import {
+  orderCreateReducer,
+  orderDetailsReducer,
+} from "../reducers/orderReducer";
 
 //initial value of cartReduce
 const initialState = {
@@ -21,6 +25,12 @@ const initialState = {
     cartItems: localStorage.getItem("cartItems")
       ? JSON.parse(localStorage.getItem("cartItems"))
       : [],
+
+    shippingAddress: localStorage.getItem("shippingAddress")
+      ? JSON.parse(localStorage.getItem("shippingAddress"))
+      : {},
+
+    payment: "card",
   },
 };
 
@@ -31,6 +41,8 @@ const reducer = combineReducers({
   cart: cartReducer,
   userSignin: userSigninReducer,
   register: registerReducer,
+  orderDetails: orderDetailsReducer,
+  orderCreate: orderCreateReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
