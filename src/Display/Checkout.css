@@ -85,6 +85,15 @@ span.price {
   color: grey;
 }
 
+.icon-container i {
+  margin-right: 10px;
+  font-size: larger;
+}
+
+.icon-container i .fa-cc-visa {
+  color: navy;
+}
+
 @media (max-width: 800px) {
   .row {
     flex-direction: column-reverse;

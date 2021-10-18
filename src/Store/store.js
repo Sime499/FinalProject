@@ -8,7 +8,10 @@ import {
 
 import { cartReducer } from "../reducers/cartReducer";
 import { userSigninReducer, registerReducer } from "../reducers/signInReducer";
-import { orderCreateReducer } from "../reducers/orderReducer";
+import {
+  orderCreateReducer,
+  orderDetailsReducer,
+} from "../reducers/orderReducer";
 
 //initial value of cartReduce
 const initialState = {
@@ -38,6 +41,7 @@ const reducer = combineReducers({
   cart: cartReducer,
   userSignin: userSigninReducer,
   register: registerReducer,
+  orderDetails: orderDetailsReducer,
   orderCreate: orderCreateReducer,
 });
 

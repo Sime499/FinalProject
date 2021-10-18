@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CheckoutPage from "../Display/CheckoutPage";
 import { useDispatch, useSelector } from "react-redux";
 import { savePayment } from "../actions/cartActions";
+import "./Checkout.css";
 
 export default function PaymentPage(props) {
   const cart = useSelector((state) => state.cart);
@@ -25,19 +26,19 @@ export default function PaymentPage(props) {
   return (
     <div>
       <CheckoutPage step1 step2 steps3></CheckoutPage>
-      <div class="row">
-        <div class="col-75">
-          <div class="container">
+      <div className="row">
+        <div className="col-75">
+          <div className="container">
             <form onSubmit={submitHandler}>
-              <div class="row">
-                <div class="col-50">
+              <div className="row">
+                <div className="col-50">
                   <h3>Payment</h3>
                   <label for="fname">Accepted Cards</label>
-                  <div class="icon-container">
+                  <div className="icon-container">
                     <i class="fab fa-cc-visa"></i>
-                    <i class="fa fa-cc-amex"></i>
-                    <i class="fa fa-cc-mastercard"></i>
-                    <i class="fa fa-cc-discover"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-discover"></i>
                   </div>
                   <label for="cname">Name on Card</label>
                   <input
@@ -70,8 +71,8 @@ export default function PaymentPage(props) {
                     required
                   />
 
-                  <div class="row">
-                    <div class="col-50">
+                  <div className="row">
+                    <div classClass="col-50">
                       <label for="ExpYear">Exp Year</label>
                       <input
                         type="text"
@@ -83,7 +84,7 @@ export default function PaymentPage(props) {
                         required
                       />
                     </div>
-                    <div class="col-50">
+                    <div className="col-50">
                       <label for="cvv">CVV</label>
                       <input
                         type="text"
