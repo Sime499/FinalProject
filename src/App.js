@@ -12,7 +12,14 @@ import Register from "./Display/Register";
 import ShippingAddressPage from "./Display/ShippingAddressPage";
 import PaymentPage from "./Display/PaymentPage";
 import PlaceOrder from "./Display/PlaceOrder";
-import orderPage from "./Display/orderPage";
+import orderPage from "./Display/OrderPage";
+import PaymentForm from "./Display/PaymentForm";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const promise = loadStripe(
+  "pk_test_51JlzBFCtDai4X8WKV1jVdxghyVrStrSYn6JiAqJjtEVWpcmtBNuId8ZCgHpRxuckqCVkamfX9IGepJBh2CDGzUhT00yFQicNfk"
+);
 
 function App(props) {
   const cart = useSelector((state) => state.cart);
@@ -74,12 +81,14 @@ function App(props) {
           <Route path="/Learn" component={Learn}></Route>
           <Route path="/Register" component={Register}></Route>
           <Route path="/Shipping" component={ShippingAddressPage}></Route>
-          <Route path="/Payment" component={PaymentPage}></Route>
+          <Route path="/payment" component={PaymentPage}></Route>
           <Route path="/order/:id" component={orderPage}></Route>
-          <Route path="/PlaceOrder" component={PlaceOrder}></Route>
+          <Route path="/placeorder" component={PlaceOrder}></Route>
+          <Elements stripe={promise}>
+            <Route path="/PaymentForm" component={PaymentForm}></Route>
+          </Elements>
         </main>
         <footer className="row center">
-          s
           <Footer />
         </footer>
       </div>
