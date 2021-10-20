@@ -12,15 +12,15 @@ import Register from "./Display/Register";
 import ShippingAddressPage from "./Display/ShippingAddressPage";
 import PlaceOrder from "./Display/PlaceOrder";
 import orderPage from "./Display/orderPage";
-import AdminRoute from './components/AdminRoute';
-import ProductListScreen from './Display/ProductListScreen';
-import ProfileScreen from './Display/ProfileScreen';
-import OrderListScreen from './Display/OrderListScreen';
-import ProductEditScreen from './Display/ProductEditScreen';
-import PrivateRoute from './components/PrivateRoute';
-import PaymentMethodScreen from './Display/PaymentMethodScreen';
-
-
+import Home from "./Display/Home";
+import AdminRoute from "./components/AdminRoute";
+import ProductListScreen from "./Display/ProductListScreen";
+import ProfileScreen from "./Display/ProfileScreen";
+import OrderListScreen from "./Display/OrderListScreen";
+import ProductEditScreen from "./Display/ProductEditScreen";
+import PrivateRoute from "./components/PrivateRoute";
+import PaymentMethodScreen from "./Display/PaymentMethodScreen";
+import ContactForm from "./components/ContactForm";
 
 function App(props) {
   const cart = useSelector((state) => state.cart);
@@ -47,6 +47,8 @@ function App(props) {
 
             <Link to="/Learn">Learn</Link>
 
+            <Link to="/contact">Contact</Link>
+
             <Link to="/cart">
               <i class="fas fa-shopping-cart"></i>
 
@@ -57,7 +59,7 @@ function App(props) {
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#">
-                  {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+                  {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
                 </Link>
                 <ul className="dropdown-content">
                   <li>
@@ -97,16 +99,16 @@ function App(props) {
                 </ul>
               </div>
             )}
-          </div>        
-          </header>
+          </div>
+        </header>
         <main>
-        <Route
+          <Route
             path="/product/:id/edit"
             component={ProductEditScreen}
             exact
           ></Route>
           <Route path="/cart/:id?" component={CartPage}></Route>
-          <Route path="/product/:id" component={ProductPage}></Route>
+          <Route path="/product/:id" component={ProductPage} exact></Route>
           <Route path="/" component={HomePage} exact></Route>
           <Route path="/SignIn" component={SignIn}></Route>
           <Route path="/Learn" component={Learn}></Route>
@@ -114,7 +116,10 @@ function App(props) {
           <Route path="/Shipping" component={ShippingAddressPage}></Route>
           <Route path="/Payment" component={PaymentMethodScreen}></Route>
           <Route path="/order/:id" component={orderPage}></Route>
-          <Route path="/PlaceOrder" component={PlaceOrder}></Route>
+          <Route path="/PlaceOrder" component={PlaceOrder} exact></Route>
+          <Route path="/contact" component={ContactForm}></Route>
+          <Route path="/" component={Home}></Route>
+
           <PrivateRoute
             path="/profile"
             component={ProfileScreen}
@@ -129,7 +134,6 @@ function App(props) {
           ></AdminRoute>
         </main>
         <footer className="row center">
-          
           <Footer />
         </footer>
       </div>

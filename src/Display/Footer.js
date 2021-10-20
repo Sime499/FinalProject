@@ -1,11 +1,27 @@
+import { BrowserRouter, Link, Route } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { signout } from "../actions/userActions";
+import SignIn from "./SignIn";
+import Learn from "./Learn";
+import Register from "./Register";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
 
 export default function Footer() {
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
+
+  const dispatch = useDispatch();
+
   return (
-    <footer className="Footer-Container">
+    <BrowserRouter>
+      <div>
+        <Route path="/SignIn" component={SignIn}></Route>
+        <Route path="/Learn" component={Learn}></Route>
+      </div>
+
       <Box px={{ xs: 3, sm: 10 }} py={{ xs: 5, sm: 10 }} color="white">
         <Container maxWidth="lg">
           <Grid container spacing={5}>
@@ -24,22 +40,33 @@ export default function Footer() {
             <Grid item spacing xs={12} sm={4}>
               <Box>Account</Box>
               <Box>
-                <Link to="/Shop">SignIn</Link>
+                <Link to="/signin">Sign In</Link>
               </Box>
               <Box>
-                <Link to="/Contact">Contact</Link>
+                <Link to="#signout" onClick={signoutHandler}>
+                  Sign Out
+                </Link>
+              </Box>
+              <Box>
+                <Link to="/contact">contact</Link>
               </Box>
             </Grid>
             <Grid item spacing xs={12} sm={4}>
-              <Box>Social Media</Box>
+              <Box>Follow ANJU Coffee </Box>
               <Box>
-                <Link to="/Learn">Twitter</Link>
+                <a href="https://www.instagram.com/">
+                  <i className="fab fa-instagram"></i>
+                </a>
               </Box>
               <Box>
-                <Link to="/Shop">Facebook</Link>
+                <a href="https://twitter.com">
+                  <i class="fab fa-twitter"></i>
+                </a>
               </Box>
               <Box>
-                <Link to="/Contact">Instagram</Link>
+                <a href="https://www.facebook.com/">
+                  <i class="fab fa-facebook"></i>
+                </a>
               </Box>
             </Grid>
           </Grid>
@@ -48,6 +75,6 @@ export default function Footer() {
           Sime and Cory &reg;{new Date().getFullYear()}
         </Box>
       </Box>
-    </footer>
+    </BrowserRouter>
   );
 }

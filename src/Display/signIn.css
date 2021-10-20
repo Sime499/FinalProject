@@ -162,4 +162,10 @@
   .Box {
     margin-bottom: 10px;
   }
+
+  .ContactForm input {
+    background-color: #fff;
+    color: #000;
+    width: 50%;
+  }
 }
