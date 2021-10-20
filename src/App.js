@@ -5,14 +5,22 @@ import CartPage from "./Display/CartPage";
 import HomePage from "./Display/HomePage";
 import ProductPage from "./Display/ProductPage";
 import SignIn from "./Display/SignIn";
-import { signout } from "./actions/SignInAction";
+import { signout } from "./actions/userActions";
 import Learn from "./Display/Learn";
 import Footer from "./Display/Footer";
 import Register from "./Display/Register";
 import ShippingAddressPage from "./Display/ShippingAddressPage";
-import PaymentPage from "./Display/PaymentPage";
 import PlaceOrder from "./Display/PlaceOrder";
 import orderPage from "./Display/orderPage";
+import AdminRoute from './components/AdminRoute';
+import ProductListScreen from './Display/ProductListScreen';
+import ProfileScreen from './Display/ProfileScreen';
+import OrderListScreen from './Display/OrderListScreen';
+import ProductEditScreen from './Display/ProductEditScreen';
+import PrivateRoute from './components/PrivateRoute';
+import PaymentMethodScreen from './Display/PaymentMethodScreen';
+
+
 
 function App(props) {
   const cart = useSelector((state) => state.cart);
@@ -49,9 +57,15 @@ function App(props) {
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#">
-                  {userInfo.name} <i className="fa fa-caret-down"></i>{" "}
+                  {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
                 </Link>
                 <ul className="dropdown-content">
+                  <li>
+                    <Link to="/profile">User Profile</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderhistory">Order History</Link>
+                  </li>
                   <li>
                     <Link to="#signout" onClick={signoutHandler}>
                       Sign Out
@@ -60,13 +74,37 @@ function App(props) {
                 </ul>
               </div>
             ) : (
-              <Link to="/SignIn">
-                <i class="fas fa-user-alt"></i>
-              </Link>
+              <Link to="/signin">Sign In</Link>
             )}
-          </div>
-        </header>
+            {userInfo && userInfo.isAdmin && (
+              <div className="dropdown">
+                <Link to="#admin">
+                  Admin <i className="fa fa-caret-down"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link to="/productlist">Products</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderlist">Orders</Link>
+                  </li>
+                  <li>
+                    <Link to="/userlist">Users</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>        
+          </header>
         <main>
+        <Route
+            path="/product/:id/edit"
+            component={ProductEditScreen}
+            exact
+          ></Route>
           <Route path="/cart/:id?" component={CartPage}></Route>
           <Route path="/product/:id" component={ProductPage}></Route>
           <Route path="/" component={HomePage} exact></Route>
@@ -74,12 +112,24 @@ function App(props) {
           <Route path="/Learn" component={Learn}></Route>
           <Route path="/Register" component={Register}></Route>
           <Route path="/Shipping" component={ShippingAddressPage}></Route>
-          <Route path="/Payment" component={PaymentPage}></Route>
+          <Route path="/Payment" component={PaymentMethodScreen}></Route>
           <Route path="/order/:id" component={orderPage}></Route>
           <Route path="/PlaceOrder" component={PlaceOrder}></Route>
+          <PrivateRoute
+            path="/profile"
+            component={ProfileScreen}
+          ></PrivateRoute>
+          <AdminRoute
+            path="/productlist"
+            component={ProductListScreen}
+          ></AdminRoute>
+          <AdminRoute
+            path="/orderlist"
+            component={OrderListScreen}
+          ></AdminRoute>
         </main>
         <footer className="row center">
-          s
+          
           <Footer />
         </footer>
       </div>

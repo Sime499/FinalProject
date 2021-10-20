@@ -24,9 +24,6 @@ export default function Footer() {
             <Grid item spacing xs={12} sm={4}>
               <Box>Account</Box>
               <Box>
-                <Link to="/Learn">SignIn</Link>
-              </Box>
-              <Box>
                 <Link to="/Shop">SignIn</Link>
               </Box>
               <Box>
