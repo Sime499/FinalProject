@@ -19,6 +19,7 @@ import OrderListScreen from './Display/OrderListScreen';
 import ProductEditScreen from './Display/ProductEditScreen';
 import PrivateRoute from './components/PrivateRoute';
 import PaymentMethodScreen from './Display/PaymentMethodScreen';
+import UserListScreen from './Display/UserListScreen';
 
 
 
@@ -127,6 +128,7 @@ function App(props) {
             path="/orderlist"
             component={OrderListScreen}
           ></AdminRoute>
+           <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
         </main>
         <footer className="row center">
           

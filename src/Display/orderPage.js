@@ -5,7 +5,7 @@ import { detailsOrder } from "../actions/orderAction";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
-export default function OrderScreen(props) {
+export default function OrderPage(props) {
   const orderId = props.match.params.id;
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetails;
