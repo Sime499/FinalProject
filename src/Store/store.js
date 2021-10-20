@@ -11,6 +11,7 @@ import { userSigninReducer, registerReducer } from "../reducers/signInReducer";
 import {
   orderCreateReducer,
   orderDetailsReducer,
+  orderPayReducer,
 } from "../reducers/orderReducer";
 
 //initial value of cartReduce
@@ -30,7 +31,7 @@ const initialState = {
       ? JSON.parse(localStorage.getItem("shippingAddress"))
       : {},
 
-    payment: "card",
+    paymentMethod: "PayPal",
   },
 };
 
@@ -43,6 +44,7 @@ const reducer = combineReducers({
   register: registerReducer,
   orderDetails: orderDetailsReducer,
   orderCreate: orderCreateReducer,
+  orderPay: orderPayReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
