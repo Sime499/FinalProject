@@ -8,37 +8,33 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
 export default function PlaceOrder(props) {
-  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  if (!cart.payment) {
-    props.payment.push("/payment ");
+  if (!cart.paymentMethod) {
+    props.history.push("/payment");
   }
-
   const orderCreate = useSelector((state) => state.orderCreate);
-  const { loading, error, success, order } = orderCreate;
+  const { loading, success, error, order } = orderCreate;
+  const toPrice = (num) => Number(num.toFixed(2)); //roundup
 
-  const toPrice = (num) => Number(num.toFixed(2)); // rounding to decimal point
   cart.itemsPrice = toPrice(
     cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
   );
-  cart.shippingPrice = cart.itemsPrice > 40 ? toPrice(0) : toPrice(8);
-  cart.taxPrice = toPrice(0.12 * cart.itemsPrice);
+  cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
+  cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
-
+  const dispatch = useDispatch();
   const placeOrderHandler = () => {
     dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
   };
-
   useEffect(() => {
     if (success) {
       props.history.push(`/order/${order._id}`);
       dispatch({ type: ORDER_CREATE_RESET });
     }
   }, [dispatch, order, props.history, success]);
-
   return (
     <div>
-      <CheckoutPage> step1 step2 step3 step4 </CheckoutPage>
+      <CheckoutPage step1 step2 step3 step4></CheckoutPage>
       <div className="row top">
         <div className="col-2">
           <ul>
@@ -46,11 +42,10 @@ export default function PlaceOrder(props) {
               <div className="card card-body">
                 <h2>Shipping</h2>
                 <p>
-                  <strong>Name:</strong>
-                  {cart.shippingAddress.fullName} <br />
-                  <strong>Address:</strong>
-                  {cart.shippingAddress.address},{cart.shippingAddress.city}
-                  {cart.shippingAddress.state},{cart.shippingAddress.postalCode}
+                  <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
+                  <strong>Address: </strong> {cart.shippingAddress.address},
+                  {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}
+                  ,{cart.shippingAddress.country}
                 </p>
               </div>
             </li>
@@ -58,19 +53,17 @@ export default function PlaceOrder(props) {
               <div className="card card-body">
                 <h2>Payment</h2>
                 <p>
-                  <strong>Method:</strong>
-                  {cart.payment}
+                  <strong>Method:</strong> {cart.paymentMethod}
                 </p>
               </div>
             </li>
             <li>
               <div className="card card-body">
                 <h2>Order Items</h2>
-
                 <ul>
                   {cart.cartItems.map((item) => (
                     <li key={item.product}>
-                      <div className="row ">
+                      <div className="row">
                         <div>
                           <img
                             src={item.image}
@@ -83,8 +76,9 @@ export default function PlaceOrder(props) {
                             {item.name}
                           </Link>
                         </div>
+
                         <div>
-                          {item.qty} x ${item.price} =${item.qty * item.price}
+                          {item.qty} x ${item.price} = ${item.qty * item.price}
                         </div>
                       </div>
                     </li>

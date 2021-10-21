@@ -1,22 +1,21 @@
-@media all and (min-width: 480px) {
-  htm1 {
-    font-size: 10px;
-    box-sizing: border-box;
-  }
 
   * {
     margin: 0;
     font-size: 16px;
     font-family: sans-serif;
+    
+    
   }
 
   /*Layout*/
   body {
-    margin: 0;
+    margin: 0px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     height: 100vh;
-  }
+}
+    
+  
   .grid-container {
     display: grid;
     grid-template-areas:
@@ -38,14 +37,10 @@
 
   main {
     grid-area: main;
-    height: 80vh;
+    height: 66vh;
+    width: 100vh;
     padding: 1rem;
     margin-top: 30px;
-  }
-
-  footer {
-    grid-area: footer;
-    color: #6d1f36;
   }
 
   .row {
@@ -53,6 +48,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    margin: 0px !important;
   }
 
   .row .product {
@@ -104,6 +100,7 @@
   h2 {
     font-size: 1.6rem;
     padding: 1rem 0;
+    color: #6d1f36;
   }
 
   /*header*/
@@ -111,6 +108,7 @@
   header a {
     color: #6d1f36;
     padding: 16px;
+    margin-left: 15px;
   }
   a.brand {
     color: #6d1f36;
@@ -152,13 +150,17 @@
   /* Image */
   img {
     border-radius: 0.5rem;
+    width: 500px;
+    height: 105px;
   }
   img.small {
     max-width: 5rem;
     width: 100%;
+
   }
   img.medium {
     max-width: 29rem;
+    max-height: 29rem;
     width: 100%;
   }
   img.large {
@@ -168,9 +170,10 @@
   /* Card */
   .card {
     border: 0.1rem #c0c0c0 solid;
-    background-color: #f8f8f8;
+    background-color: #7ba0be;
     border-radius: 0.5rem;
     margin: 1rem;
+    
   }
   .card-body {
     padding: 1rem;
@@ -194,7 +197,7 @@
     display: block !important;
   }
   .success {
-    color: #20a020;
+    color: #2ee02e;
   }
   .danger {
     color: #a02020;
@@ -224,7 +227,7 @@
   .form > div {
     display: flex;
     flex-direction: column;
-    margin: 1rem;
+    margin: 0rem;
   }
   .form label {
     margin: 1rem 0;
@@ -238,17 +241,19 @@
     position: absolute;
     display: none;
     right: 0;
-    min-width: 12rem;
+    min-width: 14rem;
     padding: 1rem;
     z-index: 1;
-    background-color: #203040;
+    background-color: #dadada;
     margin: 0;
     margin-top: 0.4rem;
     border-radius: 0.5rem;
   }
   .dropdown:hover .dropdown-content {
     display: block;
+    color:#6d1f36
   }
+
   /* Checkout Steps */
   .checkout-steps > div {
     border-top: 0.3rem #c0c0c0 solid;
@@ -278,4 +283,61 @@
   .table button {
     margin: 0 0.2rem;
   }
+
+
+
+
+.card:hover{
+  -moz-box-shadow: 5px 5px 5px #888;
+  -webkit-box-shadow: 5px 5px 5px #888;
+  box-shadow: 5px 5px 5px #888;
+  }
+
+  header a:hover {
+    color: #f38647;
+    font-weight: 400;
+  
 }
+
+.learnName {
+  height: 400px !important;
+}
+
+p {
+  font-size: 22px;
+}
+
+a {
+  font-size: 29px;
+  
+}
+
+h3 {
+  font-size: 26px;
+}
+
+.example::-webkit-scrollbar {
+  display: none;
+}
+.fa-shopping-cart {
+  font-size: 26px;
+}
+
+/* Footer */
+footer {
+  grid-area: footer;
+  color: #6d1f36;
+  height: 100px;
+  /* position: absolute; */
+}
+
+.MuiBox-root-4, .MuiBox-root-12, .MuiBox-root-18 {
+  font-size: 27px;
+  font-weight: 600;
+}
+
+/* @media screen and (min-width: 1110px) and (max-width: 1500px) {
+  .footer {
+      display: none;
+  }
+} */

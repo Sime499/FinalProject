@@ -20,6 +20,8 @@ import ProductEditScreen from './Display/ProductEditScreen';
 import PrivateRoute from './components/PrivateRoute';
 import PaymentMethodScreen from './Display/PaymentMethodScreen';
 import UserListScreen from './Display/UserListScreen';
+// import Home from './Display/Home';
+
 
 
 
@@ -84,7 +86,7 @@ function App(props) {
                 </Link>
                 <ul className="dropdown-content">
                   <li>
-                    <Link to="/dashboard">Dashboard</Link>
+                    {/* <Link to="/dashboard">Dashboard</Link> */}
                   </li>
                   <li>
                     <Link to="/productlist">Products</Link>
@@ -101,14 +103,11 @@ function App(props) {
           </div>        
           </header>
         <main>
-        <Route
-            path="/product/:id/edit"
-            component={ProductEditScreen}
-            exact
-          ></Route>
+          <Route path="/product/:id/edit" component={ProductEditScreen}></Route>
           <Route path="/cart/:id?" component={CartPage}></Route>
-          <Route path="/product/:id" component={ProductPage}></Route>
+          <Route path="/product/:id" component={ProductPage}exact></Route>
           <Route path="/" component={HomePage} exact></Route>
+          {/* <Route path="/" component={Home}></Route> */}
           <Route path="/SignIn" component={SignIn}></Route>
           <Route path="/Learn" component={Learn}></Route>
           <Route path="/Register" component={Register}></Route>
