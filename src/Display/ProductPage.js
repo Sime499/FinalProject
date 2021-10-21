@@ -48,6 +48,7 @@ export default function ProductScreen(props) {
                   ></Rating>
                 </li>
                 <li>Pirce : ${product.price}</li>
+
                 <li>
                   Description:
                   <p>{product.description}</p>

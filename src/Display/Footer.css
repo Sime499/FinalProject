@@ -1,0 +1,98 @@
+@media only screen and (max-width: 767px) {
+  .page-wrap {
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+    margin-bottom: -25px;
+    display: block;
+  }
+
+  .page-footer {
+    margin-top: 25px;
+    display: block;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    background-position: left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    border-style: none;
+    border-width: 1px;
+    border-radius: 0;
+    margin: 0 0 10px;
+    padding: 10px;
+  }
+
+  .footer.content {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-top: 1px solid #cecece;
+    text-align: center;
+  }
+  .row col {
+    box-sizing: border-box;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 1280px;
+  }
+
+  .row col div {
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    background-position: left top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    border-style: none;
+    border-width: 1px;
+    border-radius: 0;
+    margin: 0 0 10px;
+    padding: 10px;
+  }
+
+  .div {
+    display: block;
+  }
+
+  .footer-columns .col:not(:last-child) {
+    margin-bottom: 30px;
+  }
+
+  col .title {
+    margin-bottom: 15px;
+  }
+
+  .footer.content .footer-columns .col .title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 30px;
+    color: #fff;
+  }
+
+  .footer.content ul {
+    margin: 0;
+    padding: 0;
+    list-style: none none;
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+  }
+
+  .footer.content .footer-columns .col ul li {
+    padding-bottom: 15px;
+  }
+  .title col col Link {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

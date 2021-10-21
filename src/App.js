@@ -12,7 +12,7 @@ import Register from "./Display/Register";
 import ShippingAddressPage from "./Display/ShippingAddressPage";
 import PlaceOrder from "./Display/PlaceOrder";
 import orderPage from "./Display/orderPage";
-import Home from "./Display/Home";
+//import Home from "./Display/Home";
 import AdminRoute from "./components/AdminRoute";
 import ProductListScreen from "./Display/ProductListScreen";
 import ProfileScreen from "./Display/ProfileScreen";
@@ -118,7 +118,6 @@ function App(props) {
           <Route path="/order/:id" component={orderPage}></Route>
           <Route path="/PlaceOrder" component={PlaceOrder} exact></Route>
           <Route path="/contact" component={ContactForm}></Route>
-          <Route path="/" component={Home}></Route>
 
           <PrivateRoute
             path="/profile"
