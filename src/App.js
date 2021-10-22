@@ -21,6 +21,7 @@ import ProductEditScreen from "./Display/ProductEditScreen";
 import PrivateRoute from "./components/PrivateRoute";
 import PaymentMethodScreen from "./Display/PaymentMethodScreen";
 import ContactForm from "./components/ContactForm";
+import "./index.css";
 
 function App(props) {
   const cart = useSelector((state) => state.cart);

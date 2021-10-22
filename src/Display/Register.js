@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../actions/userActions";
+import "./signIn.css";
 
 export default function Register() {
   const [email, setEmail] = useState("");

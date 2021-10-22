@@ -38,13 +38,6 @@
   padding: 0 16px;
 }
 
-.container {
-  background-color: #f2f2f2;
-  padding: 5px 10px 15px 10px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-}
-
 input[type="text"] {
   width: 50%;
   margin-bottom: 20px;
