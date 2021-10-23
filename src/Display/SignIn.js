@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { signin } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import './signIn.css';
 
 export default function SigninScreen(props) {
   const [email, setEmail] = useState('');
@@ -27,49 +28,40 @@ export default function SigninScreen(props) {
     }
   }, [props.history, redirect, userInfo]);
   return (
-    <div>
-      <form className="form" onSubmit={submitHandler}>
+    <form className="inner-container" onSubmit={submitHandler}>
+      <div className="title">SignIn</div>
+      <div className="input-group">
+        <input
+          type="email"
+          name="email"
+          className="SignIn-input"
+          placeholder="Email Address"
+          required
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <input
+          type="password"
+          name="password"
+          className="SignIn-input"
+          placeholder="Password"
+          required
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+
+      <div className ="signinText">
+        <button type="submit" className="SignIn-btn">
+          Sign In
+        </button>
+      </div>
+      <div className="registercss">
+        New User? {""}
         <div>
-          <h1>Sign In</h1>
+        <Link to="/Register">Register Here</Link>
         </div>
-        {loading && <LoadingBox></LoadingBox>}
-        {error && <MessageBox variant="danger">{error}</MessageBox>}
-        <div>
-          <label htmlFor="email">Email address</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Enter password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label />
-          <button className="primary" type="submit">
-            Sign In
-          </button>
-        </div>
-        <div>
-          <label />
-          <div>
-            New customer?{' '}
-            <Link to={`/register?redirect=${redirect}`}>
-              Create your account
-            </Link>
-          </div>
-        </div>
-      </form>
-    </div>
+      </div>
+    </form>
+    
   );
 }

@@ -1,8 +1,9 @@
 import React from "react";
+import './Learn.css';
 
 export default function Learn() {
   return (
-    <div>
+    <div className="story">
       <div>
         <section className="Wrap-1">
           <div>

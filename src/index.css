@@ -3,6 +3,8 @@
     margin: 0;
     font-size: 16px;
     font-family: sans-serif;
+    border-radius: 4px;
+
     
     
   }
@@ -12,7 +14,7 @@
     margin: 0px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    height: 100vh;
+    /* height: 100vh; */
 }
     
   
@@ -37,8 +39,7 @@
 
   main {
     grid-area: main;
-    height: 66vh;
-    width: 100vh;
+    height: 77vh;
     padding: 1rem;
     margin-top: 30px;
   }
@@ -50,6 +51,10 @@
     align-items: center;
     margin: 0px !important;
   }
+  .div.row {
+    background-color: rgb(209, 205, 192);;
+  }
+
 
   .row .product {
     align-items: flex-start;
@@ -79,9 +84,6 @@
     text-decoration: none;
   }
 
-  a:hover {
-    color: darkturquoise;
-  }
 
   ul {
     padding: 0;
@@ -91,6 +93,7 @@
 
   li {
     margin-top: 1rem;
+    font-size: 30px;
   }
   h1 {
     font-size: 1.8rem;
@@ -148,6 +151,7 @@
   }
   
   /* Image */
+  
   img {
     border-radius: 0.5rem;
     width: 500px;
@@ -162,9 +166,12 @@
     max-width: 29rem;
     max-height: 29rem;
     width: 100%;
+    text-align: center;
+
   }
   img.large {
-    width: 100%;
+    width: 500px !important;
+    height: 500px;
   }
   
   /* Card */
@@ -173,13 +180,17 @@
     background-color: #7ba0be;
     border-radius: 0.5rem;
     margin: 1rem;
+    width: 235px;
+    height: 330px;
     
   }
+
   .card-body {
     padding: 1rem;
   }
   .card-body > * {
     margin-bottom: 0.5rem;
+    text-align: center;
   }
   .price {
     font-size: 2rem;
@@ -188,6 +199,7 @@
   .rating span {
     color: #f0c040;
     margin: 0.1rem;
+    font-size: 22px;
   }
   .rating span:last-child {
     color: #404040;
@@ -279,11 +291,23 @@
     text-align: left;
     border: 0.1rem solid #e4e4e4;
     padding: 0.5rem;
+    -webkit-text-stroke-width: .2px;
+    -webkit-text-stroke-color: rgb(211, 209, 209);
   }
   .table button {
     margin: 0 0.2rem;
+
   }
 
+  .table button:hover {
+    color: white;
+    background-color: crimson;
+    
+  }
+  .primary:hover {
+    background-color: rgb(20, 220, 47);
+    
+  }
 
 
 
@@ -304,11 +328,14 @@
 }
 
 p {
-  font-size: 22px;
+  font-size: 28px;
 }
 
 a {
   font-size: 29px;
+  text-align: center;
+  position: relative;
+  
   
 }
 
@@ -324,20 +351,76 @@ h3 {
 }
 
 /* Footer */
-footer {
-  grid-area: footer;
-  color: #6d1f36;
-  height: 100px;
-  /* position: absolute; */
+.Footer-Container {
+  position: fixed;
+  max-height: 450px;
+  
+
+}
+
+.MuiBox-root-2{
+  text-align:center;
+  position: relative;
 }
 
 .MuiBox-root-4, .MuiBox-root-12, .MuiBox-root-18 {
   font-size: 27px;
   font-weight: 600;
+  text-align: center !important;
+}
+.MuiBox-root-6, .MuiBox-root-8, .MuiBox-root-10, .MuiBox-root-14, .MuiBox-root-16, .MuiBox-root-20, .MuiBox-root-22, .MuiBox-root-24 {
+  text-align: center !important;
+}
+.MuiGrid-item {
+  text-align: center !important;
 }
 
-/* @media screen and (min-width: 1110px) and (max-width: 1500px) {
-  .footer {
-      display: none;
+@media only screen and (max-width: 900px) {
+  .grid-container {
+    grid-template-rows: 11rem 1fr 5rem;
   }
-} */
+}
+
+@media only screen and (max-width: 900px) {
+  .footer {
+    display: none;
+  }
+}
+
+.coffeelogo {
+  height: 64px !important;
+  margin: auto 5px;
+  margin-top: -12px;
+}
+.products {
+  color: #6d1f36;
+  text-decoration: underline;
+  text-align: center;
+  font-size: 43px;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+}
+
+.row img {
+  width: 8rem;
+  vertical-align: top;
+}
+.leftnav {
+  position: absolute;
+  top: 20px; /* assign the correct value of the top line height */
+  left: 305px;
+
+}
+
+@media only screen and (max-width: 910px) {
+  .leftnav {
+    margin-top: -208.5px; /* HALF OF THE HEIGHT */
+    margin-left: -375px; /* HALF OF THE WIDTH */
+ 
+    
+  }
+}
+.cartBG {
+  background-color: rgb(209, 205, 192);
+
+}

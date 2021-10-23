@@ -85,31 +85,32 @@ export default function ShippingAddressPage(props) {
                     onChange={(e) => setCity(e.target.value)}
                     required
                   />
-
-                  <div class="row">
-                    <div class="col-50">
-                      <label for="state">State</label>
-                      <input
-                        type="text"
-                        id="state"
-                        name="state"
-                        placeholder="NY"
-                        value={state}
-                        onChange={(e) => setState(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div class="col-50">
-                      <label for="zip">Zip</label>
-                      <input
-                        type="text"
-                        id="zip"
-                        name="zip"
-                        placeholder="10001"
-                        value={postalCode}
-                        onChange={(e) => setPostalCode(e.target.value)}
-                        required
-                      />
+                  <div>
+                    <div class="row">
+                      <div class="col-50">
+                        <label for="state">State</label>
+                        <input
+                          type="text"
+                          id="state"
+                          name="state"
+                          placeholder="NY"
+                          value={state}
+                          onChange={(e) => setState(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div class="col-50">
+                        <label for="zip">Zip</label>
+                        <input
+                          type="text"
+                          id="zip"
+                          name="zip"
+                          placeholder="10001"
+                          value={postalCode}
+                          onChange={(e) => setPostalCode(e.target.value)}
+                          required
+                        />
+                      </div>
                       <div>
                         <label />
                         <button className="btn3 " type="submit">

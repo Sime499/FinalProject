@@ -96,9 +96,15 @@ span.price {
 
 @media (max-width: 800px) {
   .row {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
   .col-25 {
     margin-bottom: 20px;
   }
+}
+
+a:hover {
+  color: rgb(103, 97, 187) !important;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
 }

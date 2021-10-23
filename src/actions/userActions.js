@@ -66,7 +66,7 @@ export const signout = () => (dispatch) => {
   localStorage.removeItem('shippingAddress');
   dispatch({ type: USER_SIGNOUT });
   alert(`You have signed out`);
-  // document.location.location.href = '/signin';
+  document.location.location = '/signin';
 };
 export const detailsUser = (userId) => async (dispatch, getState) => {
   dispatch({ type: USER_DETAILS_REQUEST, payload: userId });

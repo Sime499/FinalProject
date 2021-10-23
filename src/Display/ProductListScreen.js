@@ -92,7 +92,7 @@ export default function ProductListScreen(props) {
                 <td>
                   <button
                     type="button"
-                    className="small"
+                    className="edit"
                     onClick={() =>
                       props.history.push(`/product/${product._id}/edit`)
                     }

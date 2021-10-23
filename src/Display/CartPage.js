@@ -42,6 +42,7 @@ export default function CartScreen(props) {
           <ul>
             {cartItems.map((item) => (
               <li key={item.product}>
+                <div className="cartBG">
                 <div className="row ">
                   <div>
                     <img
@@ -82,6 +83,7 @@ export default function CartScreen(props) {
                       Remove
                     </button>
                   </div>
+                </div>
                 </div>
               </li>
             ))}

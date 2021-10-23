@@ -25,6 +25,7 @@ import UserListScreen from './Display/UserListScreen';
 
 
 
+
 function App(props) {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -40,12 +41,16 @@ function App(props) {
       <div className="grid-container">
         <header className="row">
           <div>
-            <Link className="brand" to="/home">
+            <Link className="brand" to="/">
               ANJU
             </Link>
+            <img className="coffeelogo"
+            src="image/coffeelogo.jpg" alt="coffee"
+          />
           </div>
 
           <div>
+            <div className="leftnav"> 
             <Link to="/">Shop</Link>
 
             <Link to="/Learn">Learn</Link>
@@ -57,6 +62,7 @@ function App(props) {
                 <span class="badge">{cartItems.length}</span>
               )}
             </Link>
+            </div>
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#">
@@ -67,7 +73,7 @@ function App(props) {
                     <Link to="/profile">User Profile</Link>
                   </li>
                   <li>
-                    <Link to="/orderhistory">Order History</Link>
+                    {/* <Link to="/orderhistory">Order History</Link> */}
                   </li>
                   <li>
                     <Link to="#signout" onClick={signoutHandler}>
@@ -75,9 +81,9 @@ function App(props) {
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </div>          
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <><Link to="/signin">Sign In</Link><Link to="/signin">Register</Link></>
             )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
@@ -92,7 +98,7 @@ function App(props) {
                     <Link to="/productlist">Products</Link>
                   </li>
                   <li>
-                    <Link to="/orderlist">Orders</Link>
+                    {/* <Link to="/orderlist">Orders</Link> */}
                   </li>
                   <li>
                     <Link to="/userlist">Users</Link>
